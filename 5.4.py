@@ -1,14 +1,12 @@
 class House:
     houses_history = []
+    def __new__(cls, *args):
+        return super(House, cls).__new__(cls)
 
     def __init__(self, name, number_of_floors):
         self.name = name
         self.number_of_floors = number_of_floors
         House.houses_history.append(name)
-
-    @classmethod
-    def new(cls, name, number_of_floors):
-        return cls(name, number_of_floors)
 
     def __len__(self):
         return self.number_of_floors
